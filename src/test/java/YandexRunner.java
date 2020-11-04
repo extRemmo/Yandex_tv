@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class YandexRunner extends BaseTest {
 
     @Test
-    public void YandexTVTest() throws InterruptedException {
+    public void YandexTVTest() {
         driver.get(baseUrl);
         MainPage mainPage = new MainPage(driver);
         MarketPage marketPage = new MarketPage(driver);
@@ -18,7 +18,7 @@ public class YandexRunner extends BaseTest {
         TVsPage tVsPage = new TVsPage(driver);
 
         mainPage.GoToMarket("Маркет");
-        ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+        ArrayList<String> tabs2 = new ArrayList<> (driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(1));
         marketPage.ElectronicMenu("Электроника");
         marketPage.TVMenu("Телевизоры");
@@ -27,12 +27,12 @@ public class YandexRunner extends BaseTest {
         filtersPage.Manufacturer("LG");
         filtersPage.Manufacturer("Samsung");
         filtersPage.ShowResult("Показать");
-        Thread.sleep(6000);
         tVsPage.setCountOfElement("12");
-        Thread.sleep(6000);
-        tVsPage.isCorrectCountOfTV(48);
-        String myNewTV = tVsPage.takePositionName(1);
-        tVsPage.fillField("Искать товары и магазины", myNewTV);
+        if (tVsPage.isCorrectCountOfTV(12))  {
+            String myNewTV = tVsPage.takePositionName(1);
+            tVsPage.fillField("Искать товары и магазины", myNewTV);
+            tVsPage.checkPosition(myNewTV);
+        } else System.out.println("получено не 12 строк");
         //System.out.println(tVsPage.isCorrectCountOfTV(48));
         //System.out.println(driver.getTitle());
 

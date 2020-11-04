@@ -5,8 +5,10 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.NoSuchElementException;
 import java.util.Properties;
@@ -21,7 +23,7 @@ public class BaseTest {
 
 
     @BeforeClass
-    public static void setUp() throws Exception {
+    public static void setUp() {
 
         switch (properties.getProperty("browser")) {
             case "firefox":
@@ -43,7 +45,7 @@ public class BaseTest {
     }
 
     @AfterClass
-    public static void tearDown() throws Exception {
+    public static void tearDown() {
         driver.quit();
     }
 
@@ -64,6 +66,7 @@ public class BaseTest {
     protected void checkFillField(String value, By locator) {
         assertEquals(value, driver.findElement(locator).getAttribute("value"));
     }
+
 
    /* protected void   scrollIntoElem (){
         JavascriptExecutor js = (JavascriptExecutor) driver;
