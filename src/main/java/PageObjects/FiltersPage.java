@@ -11,10 +11,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class FiltersPage {
 
     private final WebDriver driver;
-    @FindBy(xpath = ".//div[@data-filter-id='glprice']//div[@data-prefix='от']/input")
+    @FindBy(xpath = ".//div[@data-filter-id='glprice']//span[contains(@data-auto,'min')]")
     public WebElement fromBtn;
 
-    @FindBy(xpath = ".//div[@data-filter-id='glprice']//div[@data-prefix='до']/input")
+    @FindBy(xpath = ".//div[@data-filter-id='glprice']//span[contains(@data-auto,'max')]")
     public WebElement toBtn;
 
     public FiltersPage(WebDriver driver) {
@@ -33,7 +33,7 @@ public class FiltersPage {
         }
     }
     public void Manufacturer(String menuItem){
-        WebElement manufacturer = driver.findElement(By.xpath("//input[@value='"+menuItem+"']"));
+        WebElement manufacturer = driver.findElement(By.xpath("//span[text()='"+menuItem+"']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", manufacturer);
         try{
             manufacturer.click();

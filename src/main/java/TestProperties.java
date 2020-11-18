@@ -12,7 +12,7 @@ public class TestProperties {
     private TestProperties(){
         //System.setProperty("environment", "application");
         try {
-            properties.load(new FileInputStream(new File("C:\\Users\\DGrachev\\IdeaProjects\\Yandex_tv\\environment.properties" )));
+            properties.load(new FileInputStream(new File("C:\\Users\\user\\IdeaProjects\\Yandex_tv\\environment.properties" )));
         } catch (IOException e) {
             e.printStackTrace();
         }

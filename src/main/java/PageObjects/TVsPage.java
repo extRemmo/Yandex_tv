@@ -16,10 +16,10 @@ public class TVsPage extends BasePageObject {
 
     private final WebDriver driver;
 
-    @FindBy(xpath = "//div[@data-apiary-widget-name='@MarketNode/HeaderSearch']")
+    @FindBy(xpath = "//form/div[1]")
     WebElement searchField;
 
-    @FindBy(xpath = "//div[text()='Найти']")
+    @FindBy(xpath = "//form/div[2]//button")
     WebElement searchBtn;
 
     public TVsPage(WebDriver driver) {
@@ -58,13 +58,13 @@ public class TVsPage extends BasePageObject {
     }
 
     public void fillField(String fieldName, String myNewTV) {
-        searchField.findElement(By.xpath(".//*[@placeholder='"+fieldName+"']")).sendKeys(myNewTV);
+        searchField.findElement(By.xpath(".//input[@placeholder='"+fieldName+"']")).sendKeys(myNewTV);
         Actions act= new Actions(driver);
         act.moveToElement(searchBtn).click().build().perform();
     }
 
     public void checkPosition(String value) {
-        assertEquals(value, driver.findElement(By.xpath("//div[@data-zone-name='snippetList']/article[1]//a[@title]")).getText());
+        assertEquals(value, driver.findElement(By.xpath("//div[@data-zone-name='SearchSerp']//div[@id='1-0']/div/div/div[1]/div/div/div/div/div[1]/a/div[2]/div[4]//span")).getText());
     }
 
 }

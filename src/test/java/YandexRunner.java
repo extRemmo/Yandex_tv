@@ -22,17 +22,17 @@ public class YandexRunner extends BaseTest {
         driver.switchTo().window(tabs2.get(1));
         marketPage.ElectronicMenu("Электроника");
         marketPage.TVMenu("Телевизоры");
-        marketPage.AllFilters("Все фильтры");
+        //marketPage.AllFilters("Все фильтры");
         filtersPage.fillField("от","20000");
         filtersPage.Manufacturer("LG");
         filtersPage.Manufacturer("Samsung");
-        filtersPage.ShowResult("Показать");
-        tVsPage.setCountOfElement("12");
-        if (tVsPage.isCorrectCountOfTV(12))  {
+        //filtersPage.ShowResult("Показать");
+        //tVsPage.setCountOfElement("12");
+        //if (tVsPage.isCorrectCountOfTV(12))  {
             String myNewTV = tVsPage.takePositionName(1);
             tVsPage.fillField("Искать товары и магазины", myNewTV);
             tVsPage.checkPosition(myNewTV);
-        } else System.out.println("получено не 12 строк");
+        //} else System.out.println("получено не 12 строк");
         //System.out.println(tVsPage.isCorrectCountOfTV(48));
         //System.out.println(driver.getTitle());
 
