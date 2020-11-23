@@ -6,7 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import steps.BaseSteps;
 
-public class BasePageObject extends BaseSteps {
+public class BasePageObject {
 
     public BasePageObject() {
         PageFactory.initElements(BaseSteps.getDriver(), this);

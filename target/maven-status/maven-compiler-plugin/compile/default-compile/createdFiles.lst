@@ -1,0 +1,7 @@
+PageObjects\TVsPage.class
+PageObjects\MarketPage.class
+PageObjects\MainPage.class
+PageObjects\FiltersPage.class
+PageObjects\BasePageObject.class
+steps\MainPageSteps.class
+steps\BaseSteps.class

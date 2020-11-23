@@ -1,17 +1,23 @@
 package steps;
 
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import ru.yandex.qatools.allure.annotations.Attachment;
+import util.TestProperties;
 //import ru.yandex.qatools.allure.annotations.Attachment;
 
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class BaseSteps {
     public static WebDriver driver;
+    protected static String baseUrl;
+    public static Properties properties = TestProperties.getInstance().getProperties();
 
     public static WebDriver getDriver() {
         return driver;
@@ -19,21 +25,22 @@ public class BaseSteps {
 
     @Before
     public void startScenario(){
-        System.setProperty("webdriver.chrome.driver", "drv/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
         driver = new ChromeDriver();
-        driver .get("https://yandex.ru/");
-        driver .manage().window().maximize();
-        driver .manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver .manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        baseUrl = properties.getProperty("app.url");
+        System.out.println(baseUrl);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.get(baseUrl);
     }
 
-    @AfterClass
+    @After
     public static void afterMethod(){
         driver .quit();
     }
 
-    /*@Attachment(type = "image/png", value = "Screenshot")
+    @Attachment(type = "image/png", value = "Screenshot")
     public static byte[] takeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs( OutputType.BYTES);
-    }*/
+    }
 }
