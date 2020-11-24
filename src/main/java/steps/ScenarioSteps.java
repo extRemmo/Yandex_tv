@@ -11,6 +11,7 @@ public class ScenarioSteps {
     MarketPageSteps marketPageSteps = new MarketPageSteps();
     FiltersPageSteps filtersPageSteps = new FiltersPageSteps();
     TVsPageSteps tVsPageSteps = new TVsPageSteps();
+    String positionName;
 
     @When("^выбран раздел \"(.+)\"$")
     public void GoToMarket(String menuName){
@@ -68,5 +69,20 @@ public class ScenarioSteps {
     @Then("^позиций на странице \"(.+)\"$")
     public void isCorrectCountOfTV(int rows){
         tVsPageSteps.isCorrectCountOfTV(rows);
+    }
+
+    @When("^взят \"(.+)\"-й элемент в списке")
+    public void takePositionName(int count){
+       positionName = tVsPageSteps.takePositionName(count);
+    }
+
+    @When("^данный элемент введен в поисковую строку")
+    public void fillField(){
+        tVsPageSteps.fillField(positionName);
+    }
+
+    @Then("^наименование товара соответствует запомненному значению")
+    public void checkPosition(){
+        tVsPageSteps.checkPosition(positionName);
     }
 }

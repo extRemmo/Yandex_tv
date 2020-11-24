@@ -53,8 +53,8 @@ public class TVsPage extends BasePageObject {
         return item;
     }
 
-    public void fillField(String fieldName, String myNewTV) {
-        searchField.findElement(By.xpath(".//*[@placeholder='" + fieldName + "']")).sendKeys(myNewTV);
+    public void fillField(String myNewTV) {
+        searchField.findElement(By.xpath(".//*[@placeholder='Искать товары']")).sendKeys(myNewTV);
         Actions act = new Actions(BaseSteps.getDriver());
         act.moveToElement(searchBtn).click().build().perform();
     }
