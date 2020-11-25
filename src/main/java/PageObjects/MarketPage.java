@@ -15,7 +15,7 @@ public class MarketPage extends BasePageObject {
     @FindBy(xpath = "//span[@class='titleElemWrapper']/h3")
     public WebElement title;
 
-    @FindBy (xpath = "//a[contains(@href, 'televizory-i-aks')]")
+    @FindBy (xpath = "//div[@data-tid]/div/div/div/div[@data-apiary-widget-name]/div/div/div/div/div/div[3]/div[1]/a")
     public WebElement subtitle;
 
     @FindBy(xpath = "//div[@role]")

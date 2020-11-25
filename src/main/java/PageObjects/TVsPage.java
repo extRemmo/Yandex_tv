@@ -48,7 +48,7 @@ public class TVsPage extends BasePageObject {
     }
 
     public String takePositionName(int position) {
-        String item = BaseSteps.getDriver().findElement(By.xpath("//div[@data-zone-name='snippetList']/article[" + position + "]//a[@title]")).getText();
+        String item = BaseSteps.getDriver().findElement(By.xpath("//div[@data-zone-name='snippetList']/article["+position+"]//a[@title]")).getText();
         System.out.println(item);
         return item;
     }
