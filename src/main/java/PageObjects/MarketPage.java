@@ -12,11 +12,10 @@ import steps.BaseSteps;
 
 public class MarketPage extends BasePageObject {
 
+    public WebElement subtitle;
+
     @FindBy(xpath = "//span[@class='titleElemWrapper']/h3")
     public WebElement title;
-
-    @FindBy (xpath = "//div[@data-tid]/div/div/div/div[@data-apiary-widget-name]/div/div/div/div/div/div[3]/div[1]/a")
-    public WebElement subtitle;
 
     @FindBy(xpath = "//div[@role]")
     WebElement tabList;
@@ -29,9 +28,14 @@ public class MarketPage extends BasePageObject {
         tabList.findElement(By.xpath(".//span[contains(text(), '"+menuItem+"')]")).click();
     }
 
+    public WebElement SubMenu (String submenu){
+        return subtitle = BaseSteps.getDriver().findElement(By.xpath("//div[@data-tid]/div/div/div/div[@data-apiary-widget-name]/div/div/div/div/div/div/div/a[text()='"+submenu+"']"));
+        //return subtitle;
+    }
+
+
     public void TVMenu(String menuItem){
-        WebElement tvMenu = BaseSteps.getDriver().findElement(By.xpath(".//*[text()='"+menuItem+"']"));
-        tvMenu.click();
+        subtitle.findElement(By.xpath("./../following-sibling::div//*[text()='"+menuItem+"']")).click();
     }
     public void AllFilters(String menuItem){
         WebElement filter = BaseSteps.getDriver().findElement(By.xpath(".//*[text()='"+menuItem+"']"));

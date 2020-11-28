@@ -47,13 +47,14 @@ public class ScenarioSteps {
     public void checkTitleFiltersPage(String title){
         filtersPageSteps.checkTitleFiltersPage(title);
     }
-    @When("^установлен фильтр цены \"(.+)\" and \"(.+)\"$")
+    @When("^установлен фильтр цены \"(.+)\" and (.+)$")
     public void priceFilter(String menuName, String price){
         filtersPageSteps.priceFilter(menuName, price);
     }
-    @When("^выбран производитель \"(.+)\"$")
-    public void Manufacturer(String menuName){
-        filtersPageSteps.Manufacturer(menuName);
+
+    @When("^выбран производитель$")
+    public void Manufacturer(DataTable dataTable){
+        dataTable.asList(String.class).forEach(k -> filtersPageSteps.Manufacturer(k));
     }
 
     @Then("^нажата кнопка \"(.+)\"$")

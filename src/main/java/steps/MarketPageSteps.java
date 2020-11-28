@@ -27,7 +27,7 @@ public class MarketPageSteps extends BasePageObject {
 
     @Step("заголовок страницы {0}")
     public void checkTitleElectronicMenu(String expectedTitle){
-        String actualTitle = new MarketPage().subtitle.getText();
+        String actualTitle = new MarketPage().SubMenu(expectedTitle).getText();
         assertTrue(String.format("Заголовок равен [%s]. Ожидалось - [%s]",
                 actualTitle, expectedTitle), actualTitle.contains(expectedTitle));
     }
