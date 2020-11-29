@@ -1,7 +1,6 @@
 package steps;
 
 import PageObjects.FiltersPage;
-import PageObjects.MarketPage;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static org.junit.Assert.assertTrue;

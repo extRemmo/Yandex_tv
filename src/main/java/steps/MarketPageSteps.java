@@ -1,7 +1,6 @@
 package steps;
 
 import PageObjects.BasePageObject;
-import PageObjects.MainPage;
 import PageObjects.MarketPage;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -33,8 +32,8 @@ public class MarketPageSteps extends BasePageObject {
     }
 
     @Step("выбрано подменю {0}")
-    public void TVMenu(String menuItem){
-        new MarketPage().TVMenu(menuItem);
+    public void TVMenu(String titleName, String menuItem){
+        new MarketPage().TVMenu(titleName, menuItem);
     }
 
     @Step("кликнуто по кнопке {0}")

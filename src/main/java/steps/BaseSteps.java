@@ -2,14 +2,12 @@ package steps;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import org.junit.AfterClass;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.yandex.qatools.allure.annotations.Attachment;
 import util.TestProperties;
-//import ru.yandex.qatools.allure.annotations.Attachment;
 
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;

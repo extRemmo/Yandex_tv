@@ -3,7 +3,6 @@ package steps;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import gherkin.lexer.Fi;
 
 
 public class ScenarioSteps {
@@ -33,9 +32,9 @@ public class ScenarioSteps {
         marketPageSteps.checkTitleElectronicMenu(title);
     }
 
-    @When("^выбрано подменю \"(.+)\"$")
-    public void TVMenu(String menuName){
-        marketPageSteps.TVMenu(menuName);
+    @When("^выбрано подменю \"(.+)\" \"(.+)\"$")
+    public void TVMenu(String menuName, String titleName){
+        marketPageSteps.TVMenu(titleName, menuName);
     }
 
     @When("^кликнуто по кнопке \"(.+)\"$")
